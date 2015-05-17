@@ -1,0 +1,356 @@
+.about{
+
+font-size: 15px;
+border-width: 5px;
+
+}
+
+
+#anu {
+
+display: none;
+
+}
+
+
+
+
+
+#btn-login{
+
+background-color: #729A9D;
+
+}
+
+
+.btn-tw{
+
+
+width: 114px;
+opacity: 0.7;
+
+
+
+}
+
+.blogs{
+
+
+	margin-top: 20px;
+}
+
+
+.carousel-inner{
+
+
+	margin-top: -15px;
+}
+
+button#semanal {
+margin-right: 30%;
+margin-left: 30%;
+}
+
+footer{
+
+   position: absolute;
+	top:800px;
+    right: 30%;
+    left: 30%;
+}
+
+
+footer p{
+
+margin-left: 20px;
+
+}
+
+.col-lg-10{
+
+
+	width: 50%;
+}
+
+
+
+.foot{
+	margin-bottom: 20px;
+margin-top: 20px;
+float: left;
+width: 1000px;
+}
+
+
+.foot li {
+
+
+	display: inline;
+}
+
+.foot li a {
+
+
+	display: inline;
+}
+
+#formulary{
+
+
+
+margin-bottom: 50px;
+
+
+}
+
+
+.item img{
+
+width: 100%;
+
+}
+
+
+.jumbotron{
+
+
+	background: url(../images/social.jpg) no-repeat;
+	margin-top: 30px;
+height: 300px;
+}
+
+.jumbotron p{
+
+	display: inline;
+}
+
+#map{
+
+margin-top: 20px;
+
+}
+
+#mensaje{
+color: white;
+margin-top: 10px;
+margin-right: 10px;
+
+
+
+}
+
+#mapas{
+
+margin-left: 12px;
+}
+#men {
+
+display: none;
+
+}
+
+.navbar-nav {
+
+margin-top: 20px;
+float: right;
+
+}
+
+.navbar-inverse .navbar-nav>li>a {
+color: white;
+}
+
+.navbar navbar-inverse navbar-static-top {
+
+	background-color: red;
+}
+
+
+.navbar-inverse{
+
+background-color: #729A9D;
+border-color: white;
+
+}
+
+
+.navbar-inverse .navbar-nav>li>a{
+
+margin-right: 5px;
+
+}
+
+
+.navbar-inverse .navbar-nav>li>a:hover{
+
+color:#00EBFF;
+
+
+}
+
+.panel-body{
+
+    background: url(../images/sucess.jpg) no-repeat 50%;
+	height: 500px;	
+}
+
+h1{
+border-radius: 20px;
+display: block;
+padding: 0;
+margin: 0;
+background: url(../images/logo.png) no-repeat 100%;
+height: 90px;
+text-indent: -9999px;
+width: 270px;
+border-radius: 20px;
+margin-bottom: 15px;
+margin-top: 5%;
+}
+
+#sem{
+
+display: none;
+
+}
+#social{
+
+
+	float: right;
+	margin-top: 50px;
+}
+
+#social p a:hover{
+opacity: 1;
+
+}
+
+#suce{
+
+background-image: url(images/sucess.jpg) 100% no-repeat;
+
+
+}
+	#usuario {
+
+	display: none;
+}
+
+#usuarioa {
+
+	display: none;
+}
+
+
+#usuariom {
+
+	display: none;
+}
+
+.voverlay{
+
+
+	margin-left: 20%;
+}
+
+.videogallery a img{
+
+margin-left: 10%;
+
+
+}
+
+
+
+
+
+
+@media (max-width: 480px){
+
+
+
+
+.navbar-nav{
+
+float: none;
+}
+
+.navbar-inverse .navbar-nav>li{
+
+text-align: center;
+
+}
+
+
+
+h1{
+
+background: url(../images/logop.jpg) no-repeat 50%;
+
+}
+
+
+h5{
+color:red;
+text-align: center;
+
+}
+
+
+
+#social{
+
+margin-left: 25%;
+	margin-right: 25%;
+}
+
+#social p a{
+
+
+
+	display: block;
+	margin-top: 20px;
+
+}
+footer {
+
+   right: 10%;
+    left: 10%;
+
+}
+
+
+}
+
+@media (max-width: 760px){
+
+
+
+.navbar-nav{
+
+float: none;
+}
+
+.navbar-inverse .navbar-nav>li{
+
+text-align: center;
+
+}
+
+
+
+h1{
+
+background: url(../images/logop.jpg) no-repeat 50%;
+
+}
+
+
+
+.voverlay img{
+
+display: block;
+
+
+}
+
