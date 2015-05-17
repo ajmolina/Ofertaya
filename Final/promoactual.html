@@ -9,7 +9,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../favicon.ico">
 
-    <title>Product Registration</title>
+    <title>Actual Promotions</title>
 
     <!-- Bootstrap core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -29,8 +29,27 @@
     <link rel="stylesheet" href="css/jquery.dataTables.css">
     <link rel="stylesheet" href="css/jquery-ui.css">
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-1.3.1.min.js"></script>
+    <link href="css/jquery-ui.css" rel="stylesheet">
+
+   <script src="js/jquery-1.10.2.js"></script>
+   <script src="js/jquery-1.11.1.js"></script>
+   <script src="js/jquery.dataTables.js"></script>
+   <script src="js/bootstrap.min.js"></script>
+     <script src="js/jquery-ui.js"></script>
    
-   
+<script>
+
+$(document).ready(function() {
+
+$('#tabla').tabs();
+
+
+var t = $('#tablas').DataTable();
+});
+
+</script>
+
+
       <?php
 define( 'PARSE_SDK_DIR', './Parse/' );
 
@@ -87,10 +106,6 @@ else {
             </div>
             <div class="navbar-collapse collapse">
               <ul class="nav navbar-nav">
-                <li><a href="users.html">Create users</a></li>
-                <li><a href="update.html">Update promotion</a></li>
-                <li><a href="promoactual.html">Promotions</a></li>
-                <li><a href="borrar">Delete Promotion </a></li>
                 <li><a href="logout.php">Log out</a></li>
               
              
@@ -106,130 +121,92 @@ else {
 
 
 <div class="container">    
-        <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div id="loginbox" style="margin-top:50px;" class="mainbox  col-md-offset-3 col-sm-8 col-sm-offset-2">                    
             <div class="panel panel-info" >
                     <div class="panel-heading">
-                        <div class="panel-title">Register Discount</div>
+                        <div class="panel-title">Tables</div>
                        <div class="panel-body" >
 
 
 
-             <div id ="formulary" class="form-horizontal"  method="POST" action="#" >
-             <form method="post" action="push.php">    
-                                <div id="signupalert" style="display:none" class="alert alert-danger">
-                                    <p>Error:</p>
-                                    <span></span>
-                                </div>
-                                    
+
+             
+               
+               <div id ="tabla">                  
                                 
-                                  
-                            
-                                    
-     <div class="form-group">
-    <label for="ejemplo_name_3" class="col-lg-2 control-label">Product</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control required" id="product" name = "prod">
-    </div>
-
-  </div>
-
-  <div class="form-group">
-    <label for="fi" class="col-lg-2 control-label "> Initial date</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control required " id="fi" name="fi">
-    </div>
-  </div>
-
-  <div class="form-group">
-    <label for="ff" class="col-lg-2 control-label "> Final date</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control required " id="ff" name="ff">
-    </div>
-  </div>
-
-
- <div class="form-group">
-    <label for="ejemplo_password_3" class="col-lg-2 control-label">Sucursal</label>
-    <div class="col-lg-10">
-      <select id="suc" class = "form-control required" name ="sucur">
-
-  <?php
+         <?php
+          
 define( 'PARSE_SDK_DIR', './Parse/' );
 
 
-require_once( 'autoload.php' );
 
-session_start();
+
 ParseClient::initialize('1meX4eoaUmA1quVUqVWN8TW0JtGaQLUip4xylIdW', 'RAkvuwFDpoYO7kqqpj7Rp0HvaLRyezz97GhBLIFc', 'nmx58yZNVlbAEcSqd2oJptcOLdPXD3R2f8qdGE6E');
 
+
 $currentUser = ParseUser::getCurrentUser();
-
-if ($currentUser) {
-
+$almacen = $currentUser->get("Empresa");
 
 
-$sucurs =$currentUser->get('Empresa'); 
-
-
-
-$query = new ParseQuery("Sucursales");
-$query->equalTo("idEmpresa", $sucurs);
+$query = new ParseQuery("Promociones");
+$query->equalTo("idEmpresa", $almacen);
 $results = $query->find();
 
 
-for ($i = 0; $i < count($results); $i++) { 
-  $object = $results[$i];
-  $id = $object->get('ID');
-echo   "<option value=".$id.">".$object->get('Nombre')."</option>";
 
 
-}
+         ?>                         
+                            
+                                    
+   <table id = "tablas" class="display compact" >
+        <thead>
+            <tr><th>ID</th>
+                <th>ID Sucursal</th>
+                <th>Initial Date</th>
+                <th>End Date</th>
+                <th>Product name</th>
+                <th>Description</th>
+                <th>Discount</th>
+            </tr>
+        </thead>
+        <tbody>
+        <?php
+       
+      for ($i = 0; $i < count($results); $i++) { 
+          $object = $results[$i];
 
+        ?>
+            <tr>
+                <td><?php echo $object->getObjectId(); ?></td>
+                <td><?php echo $object->get('idSucursal'); ?></td>
+                <td><?php echo $object->get('FechaInicio'); ?></td>
+                <td><?php echo $object->get('FechaFinal'); ?></td>
+                 <td><?php echo $object->get('NombreProducto'); ?></td>
+                  <td><?php echo $object->get('Descripcion'); ?></td>
+                   <td><?php echo $object->get('Descuento'); ?></td>
+            </tr>
+        <?php } ?>
+        </tbody>
+    </table>
 
-
-} 
-else {
  
-    header('Location: http://ofertaya.hostinazo.com/final/index.html');
-}
-
-      ?>
-</select>
-
-    </div>
-
-  </div>
-
-
-
-
-
- <div class="form-group">
-    <label for="ejemplo_password_3" class="col-lg-2 control-label">Discount</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control required" id="ejemplo_password_3" name="disc">
-    </div>
-
-  </div>
-
-
-
-
-
-
-  <div class="form-group">
-    <label for="ejemplo_email_3" class="col-lg-2 control-label ">Description</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control required " id="ejemplo_email_3" name="desc">
-    </div>
-  </div>
   
-  <div class="form-group">
-    <label for="codigo" class="col-lg-2 control-label ">Image</label>
-    <div class="col-lg-10">
-      <input type="text" class="form-control required " id="codigo" name="image">
-    </div>
-  </div>
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+ 
+  </div>   
+
     
 
     
@@ -239,20 +216,14 @@ else {
                                     
                                
 
-                                <div class="form-group">
-                                    <!-- Button -->                                        
-                                    <div class="col-md-offset-3 col-md-9">
-                                        <button id="create" type="submit" class="btn btn-info"> Create</button>
-                                    
-                                    </div>
-                                </div>
+                            
                                 
                           
                                 
                                 
-                            </form>
+                   
 
-                            </div>
+                      
 
 
 

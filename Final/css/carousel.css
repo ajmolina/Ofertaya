@@ -51,10 +51,10 @@ margin-right: 30%;
 margin-left: 30%;
 }
 
-footer{
+footer p {
 
    position: absolute;
-	top:800px;
+	top:700px;
     right: 30%;
     left: 30%;
 }
@@ -96,7 +96,7 @@ width: 1000px;
 
 #formulary{
 
-
+width: 100%;
 
 margin-bottom: 50px;
 
@@ -111,18 +111,7 @@ width: 100%;
 }
 
 
-.jumbotron{
 
-
-	background: url(../images/social.jpg) no-repeat;
-	margin-top: 30px;
-height: 300px;
-}
-
-.jumbotron p{
-
-	display: inline;
-}
 
 #map{
 
@@ -194,6 +183,8 @@ color:#00EBFF;
 	height: 500px;	
 }
 
+
+
 h1{
 border-radius: 20px;
 display: block;
@@ -231,6 +222,23 @@ background-image: url(images/sucess.jpg) 100% no-repeat;
 
 
 }
+
+#tabla{
+
+width: 103%;
+margin-right: 10%;
+}
+#tablas{
+
+width: 30%;
+
+}
+
+.display compact{
+
+	width: 30%;
+}
+
 	#usuario {
 
 	display: none;
@@ -253,12 +261,7 @@ background-image: url(images/sucess.jpg) 100% no-repeat;
 	margin-left: 20%;
 }
 
-.videogallery a img{
 
-margin-left: 10%;
-
-
-}
 
 
 
@@ -312,6 +315,10 @@ margin-left: 25%;
 	margin-top: 20px;
 
 }
+
+
+
+
 footer {
 
    right: 10%;
