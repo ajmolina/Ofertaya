@@ -13,7 +13,12 @@ display: none;
 }
 
 
+#borrar {
+clear: both;
 
+margin-top: 50px;
+
+}
 
 
 #btn-login{
@@ -46,6 +51,11 @@ opacity: 0.7;
 	margin-top: -15px;
 }
 
+
+.col-md-offset-3 {
+  margin-left: 15%; 
+}
+
 button#semanal {
 margin-right: 30%;
 margin-left: 30%;
@@ -54,7 +64,7 @@ margin-left: 30%;
 footer p {
 
    position: absolute;
-	top:700px;
+	top:800px;
     right: 30%;
     left: 30%;
 }
@@ -101,6 +111,11 @@ width: 100%;
 margin-bottom: 50px;
 
 
+}
+
+h2 {
+
+margin-left: 40%;
 }
 
 

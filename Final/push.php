@@ -20,7 +20,7 @@ use Parse\ParseStorageInterface;
 
 session_start();
 
-ParseClient::initialize('DLvMEIqJsYS4V2GVzxeKRpLRMs6BdK7n77s5lNbn','yLQD0VPy0AoClYv2uoVwQKZaKfuuVOy4qIKqdwzO', 'x2uxDPN7ANo9MatG49wah11vP6WZ556ttCauQJcG');
+ParseClient::initialize('1meX4eoaUmA1quVUqVWN8TW0JtGaQLUip4xylIdW', 'RAkvuwFDpoYO7kqqpj7Rp0HvaLRyezz97GhBLIFc', 'nmx58yZNVlbAEcSqd2oJptcOLdPXD3R2f8qdGE6E');
 
 $pro=  $_POST["prod"];
 $fini=  $_POST["fi"];
