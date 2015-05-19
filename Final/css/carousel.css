@@ -64,7 +64,7 @@ margin-left: 30%;
 footer p {
 
    position: absolute;
-	top:800px;
+	
     right: 30%;
     left: 30%;
 }
@@ -237,7 +237,11 @@ background-image: url(images/sucess.jpg) 100% no-repeat;
 
 
 }
+#tab{
 
+margin-top: 10%;
+
+}
 #tabla{
 
 width: 103%;
@@ -254,6 +258,11 @@ width: 30%;
 	width: 30%;
 }
 
+#update{
+
+	  margin-left: 15;
+  width: 318px;
+}
 	#usuario {
 
 	display: none;

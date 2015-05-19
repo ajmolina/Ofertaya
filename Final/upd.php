@@ -22,13 +22,27 @@ session_start();
 
 
 
-$dele=  $_POST["delete"];
+$update=  $_POST["idpromo"];
 ParseClient::initialize('1meX4eoaUmA1quVUqVWN8TW0JtGaQLUip4xylIdW', 'RAkvuwFDpoYO7kqqpj7Rp0HvaLRyezz97GhBLIFc', 'nmx58yZNVlbAEcSqd2oJptcOLdPXD3R2f8qdGE6E');
+
+$pro=  $_POST["prodn"];
+$fini=  $_POST["inid"];
+$ffin=  $_POST["fid"];
+$suc=  $_POST["idsuc"];
+$disco=  $_POST["dt"];
+$descr=  $_POST["dn"];
+$img=  $_POST["imagee"];
+
+
+
 
 
 
 $query = new ParseQuery("Promociones");
 $query->equalTo("objectId", $dele);
+
+
+
 $results = $query->find();
 
 
