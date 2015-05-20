@@ -43,8 +43,30 @@ $(document).ready(function() {
 
 $('#tabla').tabs();
 
+ $( "#fid" ).datepicker({
+     dateFormat: 'dd-mm-yy' 
+   });
 
-var t = $('#tablas').DataTable();
+  $( "#inid" ).datepicker({
+     dateFormat: 'dd-mm-yy' 
+   });
+
+
+ $('#tablas').DataTable(
+
+{
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "No se encontraron datos",
+            "info": "Mostrando _PAGE_ páginas de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrando de _MAX_ registros)"
+        }
+    } 
+
+  );
+
+ 
 });
 
 </script>
@@ -164,7 +186,7 @@ $results = $query->find();
          ?>                         
                             
                                     
-   <table id = "tablas" class="display compact" >
+   <table id = "tablas" class="display compact" cellspacing="0" width="100%">
         <thead>
             <tr><th>ID</th>
                 <th>ID Sucursal</th>
@@ -216,13 +238,81 @@ $results = $query->find();
     
               <div id ="tab" >           
 
-  <div class="form-group">
-    <label for="ejemplo_name_3" class="col-lg-2 control-label">ID </label>
+
+<div class="form-group">
+    <label for="ejemplo_password_3" class="col-lg-2 control-label">ID</label>
     <div class="col-lg-10">
-      <input type="text" class="form-control required" id="idpromo" name = "idpromo">
+      <select id="idpromo" class = "form-control required" name ="idpromo">
+
+  <?php
+define( 'PARSE_SDK_DIR', './Parse/' );
+
+
+require_once( 'autoload.php' );
+
+session_start();
+ParseClient::initialize('1meX4eoaUmA1quVUqVWN8TW0JtGaQLUip4xylIdW', 'RAkvuwFDpoYO7kqqpj7Rp0HvaLRyezz97GhBLIFc', 'nmx58yZNVlbAEcSqd2oJptcOLdPXD3R2f8qdGE6E');
+
+$currentUser = ParseUser::getCurrentUser();
+
+if ($currentUser) {
+
+
+
+$promos =$currentUser->get('Empresa'); 
+
+
+
+$query = new ParseQuery("Promociones");
+$query->equalTo("idEmpresa", $promos);
+$results = $query->find();
+
+
+for ($i = 0; $i < count($results); $i++) { 
+  $object = $results[$i];
+  $id = $object->get('ID');
+echo   "<option value=".$object->getObjectId().">".$object->getObjectId()."</option>";
+
+
+}
+
+
+
+} 
+else {
+ 
+    header('Location: http://ofertaya.hostinazo.com/final/index.html');
+}
+
+      ?>
+</select>
+
     </div>
 
   </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 
      <div class="form-group">
     <label for="ejemplo_name_3" class="col-lg-2 control-label">ID sucursal</label>
@@ -233,14 +323,14 @@ $results = $query->find();
   </div>
 
   <div class="form-group">
-    <label for="fi" class="col-lg-2 control-label "> Initial date</label>
+    <label for="inid" class="col-lg-2 control-label "> Initial date</label>
     <div class="col-lg-10">
       <input type="text" class="form-control required " id="inid" name="inid">
     </div>
   </div>
 
   <div class="form-group">
-    <label for="ff" class="col-lg-2 control-label "> Final date</label>
+    <label for="fid" class="col-lg-2 control-label "> Final date</label>
     <div class="col-lg-10">
       <input type="text" class="form-control required " id="fid" name="fid">
     </div>

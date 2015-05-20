@@ -43,8 +43,19 @@ $(document).ready(function() {
 
 $('#tabla').tabs();
 
+$('#tablas').DataTable(
+{
+        "language": {
+            "lengthMenu": "Mostrar _MENU_ registros por página",
+            "zeroRecords": "No se encontraron datos",
+            "info": "Mostrando _PAGE_ páginas de _PAGES_",
+            "infoEmpty": "No hay registros disponibles",
+            "infoFiltered": "(Filtrando de _MAX_ registros)"
+        }
+    } 
 
-var t = $('#tablas').DataTable();
+
+  );
 });
 
 </script>
